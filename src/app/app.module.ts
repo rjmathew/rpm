@@ -4,10 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { PropertyComponent } from './property/property.component';
+import { PropertyListComponent } from './property-list/property-list.component';
+import { PropertyInfoComponent } from './property-info/property-info.component';
+import { PropertyAddressComponent } from './property-address/property-address.component';
+import { MoneyItemComponent } from './money-item/money-item.component';
+import { MoneyItemListComponent } from './money-item-list/money-item-list.component';
+import { MoneySummaryComponent } from './money-summary/money-summary.component';
+import { MoneySummaryByMonthComponent } from './money-summary-by-month/money-summary-by-month.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PropertyComponent,
+    PropertyListComponent,
+    PropertyInfoComponent,
+    PropertyAddressComponent,
+    MoneyItemComponent,
+    MoneyItemListComponent,
+    MoneySummaryComponent,
+    MoneySummaryByMonthComponent
   ],
   imports: [
     BrowserModule,

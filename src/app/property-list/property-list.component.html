@@ -1,0 +1,11 @@
+<p>
+Pick a property
+</p>
+
+<div>
+  <ul>
+    <li *ngFor="let property of properties">
+      <app-property [inputProperty]="property"></app-property>
+    </li>
+  </ul>
+</div>
