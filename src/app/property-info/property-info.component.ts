@@ -9,7 +9,8 @@ import {Input} from "@angular/core/src/metadata/directives";
 })
 export class PropertyInfoComponent implements OnInit {
   @Input() inputInfo : PropertyInfo;
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

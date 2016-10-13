@@ -13,6 +13,6 @@ export class Property {
     this.name = pName;
 
     this.address = new PropertyAddress("address for " + pName);
-    this.info = new PropertyInfo(2016);
+    this.info = new PropertyInfo(2016, "test");
   }
 }
