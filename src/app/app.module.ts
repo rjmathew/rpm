@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import {RouterModule, Routes} from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { PropertyComponent } from './property/property.component';
 import { PropertyListComponent } from './property-list/property-list.component';
@@ -12,6 +14,10 @@ import { MoneyItemComponent } from './money-item/money-item.component';
 import { MoneyItemListComponent } from './money-item-list/money-item-list.component';
 import { MoneySummaryComponent } from './money-summary/money-summary.component';
 import { MoneySummaryByMonthComponent } from './money-summary-by-month/money-summary-by-month.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {AppRoutes} from "./app.routes";
+import { PropertySummaryComponent } from './property-summary/property-summary.component';
+
 
 @NgModule({
   declarations: [
@@ -23,14 +29,16 @@ import { MoneySummaryByMonthComponent } from './money-summary-by-month/money-sum
     MoneyItemComponent,
     MoneyItemListComponent,
     MoneySummaryComponent,
-    MoneySummaryByMonthComponent
+    MoneySummaryByMonthComponent,
+    PropertySummaryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(AppRoutes)
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,10 +9,11 @@ export class Property {
   info : PropertyInfo;
 
 
-  constructor(pName) {
+  constructor(pId : number, pName: string, pYearPurchased : number, pDescription : string, pAddress : string) {
     this.name = pName;
+    this.id = pId;
 
-    this.address = new PropertyAddress("address for " + pName);
-    this.info = new PropertyInfo(2016, "test");
+    this.address = new PropertyAddress(pAddress);
+    this.info = new PropertyInfo(pYearPurchased, pDescription);
   }
 }

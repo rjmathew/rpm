@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import {Property} from "../property/property.model";
+import {PropertyService} from "../property.service";
 
 @Component({
   selector: 'app-property-list',
   templateUrl: './property-list.component.html',
-  styleUrls: ['./property-list.component.css']
+  styleUrls: ['./property-list.component.css'],
+  providers: [PropertyService]
 })
 export class PropertyListComponent implements OnInit {
 
   properties : Property[];
-  constructor() {
-    this.properties = [
-      new Property("prop1"), new Property("prop2")
+  constructor(private propertyService : PropertyService) {
+    this.properties = propertyService.getAll();
+      [
+
     ];
   }
 
