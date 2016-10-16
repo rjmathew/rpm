@@ -5,7 +5,7 @@ export class MoneyItem {
   propertyId : number;
   description : string;
   amount : number;
-  entryDate : Date;
+  transactionDate : Date;
 
 
   constructor(pId : number, pPropertyId: number, pAmount : number, pDescription : string, pEntryDate : Date) {
@@ -13,7 +13,7 @@ export class MoneyItem {
     this.amount = pAmount;
     this.description = pDescription;
     this.propertyId = pPropertyId;
-    this.entryDate = pEntryDate;
+    this.transactionDate = pEntryDate;
   }
 
 }
