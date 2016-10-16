@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Input} from "@angular/core/src/metadata/directives";
 import {Property} from "./property.model";
 import {ActivatedRoute} from "@angular/router";
-import {PropertyService} from "../property.service";
+import {PropertyService} from "../services/property.service";
 
 @Component({
   selector: 'app-property',
@@ -19,7 +19,7 @@ export class PropertyComponent implements OnInit {
 
   ngOnInit() {
 
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['propertyId'];
     this.inputProperty = this.propertyService.getPropertyById(this.id);
   }
 

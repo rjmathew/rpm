@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Property} from "./property/property.model";
+import {Property} from "../property/property.model";
 
 @Injectable()
 export class PropertyService {

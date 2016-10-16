@@ -1,5 +1,7 @@
 <p>
+  <a [routerLink]="['/home']">Home</a>
   {{inputProperty.name}}
   <app-property-info [inputInfo]="inputProperty.info"></app-property-info>
   <app-property-address [inputAddress]="inputProperty.address"></app-property-address>
+  <app-money-summary></app-money-summary>
 </p>

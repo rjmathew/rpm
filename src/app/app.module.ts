@@ -17,6 +17,7 @@ import { MoneySummaryByMonthComponent } from './money-summary-by-month/money-sum
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {AppRoutes} from "./app.routes";
 import { PropertySummaryComponent } from './property-summary/property-summary.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { PropertySummaryComponent } from './property-summary/property-summary.co
     MoneyItemListComponent,
     MoneySummaryComponent,
     MoneySummaryByMonthComponent,
-    PropertySummaryComponent
+    PropertySummaryComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

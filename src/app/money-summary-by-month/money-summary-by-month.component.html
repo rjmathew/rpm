@@ -1,3 +1,4 @@
-<p>
-  money-summary-by-month works!
-</p>
+Summary By Month  <ul>
+  <li *ngFor="let summary of monthlySummaryList.sortedMonthlySummaries()"> {{summary.year}}/{{summary.month}} : Amount : {{summary.amount}}, Cumulative {{summary.cumulativeAmount}}</li>
+</ul>
+
