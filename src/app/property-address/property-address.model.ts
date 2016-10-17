@@ -5,7 +5,7 @@ export class PropertyAddress {
   state : string;
   zip : string;
 
-  constructor(pLine1 : string) {
+  constructor(pLine1? : string) {
     this.line1 = pLine1;
   }
 }

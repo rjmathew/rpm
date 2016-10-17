@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 export class MoneySummaryComponent implements OnInit {
 
   totalAmount : number;
-  propertyId : number;
+  propertyId : string;
   constructor(private moneyService : MoneyService, private route : ActivatedRoute  ) { }
 
   ngOnInit() {

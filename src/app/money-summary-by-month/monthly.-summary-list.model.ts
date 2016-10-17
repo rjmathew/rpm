@@ -7,6 +7,8 @@ export class MonthlySummaryList {
   public monthlySummaries : MonthlySummary[];
 
   sortedMonthlySummaries(): MonthlySummary[] {
+    if (this.monthlySummaries==null)
+      return null;
       return this.monthlySummaries.sort((a: MonthlySummary, b: MonthlySummary) =>
       {
         if (b.year > a.year)
@@ -28,14 +30,14 @@ export class MonthlySummaryList {
   }
 
   calculateCumes() {
+    if (this.monthlySummaries==null)
+      return null;
     for (var monthlySummaryToUpdate of this.monthlySummaries) {
       if (monthlySummaryToUpdate.cumulativeAmount == null)
         monthlySummaryToUpdate.cumulativeAmount = 0;
       for (var monthlySummaryToCheck of this.monthlySummaries) {
         if (monthlySummaryToUpdate.month >= monthlySummaryToCheck.month && monthlySummaryToUpdate.year >= monthlySummaryToCheck.year) {
-          console.log('Updating Cume for existing');
           monthlySummaryToUpdate.cumulativeAmount = monthlySummaryToUpdate.cumulativeAmount + monthlySummaryToCheck.amount;
-          console.log('New cume for existing is ' + monthlySummaryToUpdate.cumulativeAmount);
         }
       }
 
@@ -51,19 +53,13 @@ export class MonthlySummaryList {
       this.monthlySummaries = [];
     }
     var monthlySummaryToUse : MonthlySummary;
-    console.log("NEW " + year + " " + month);
-    console.log(moneyItem);
     for (var monthlySummary of this.monthlySummaries) {
-      console.log("EXISTING " + monthlySummary.year + " " + monthlySummary.month);
-      console.log(monthlySummary);
       if (monthlySummary.month==month && monthlySummary.year == year) {
-        console.log('adding to existing');
         monthlySummaryToUse = monthlySummary;
         monthlySummaryToUse.amount = monthlySummaryToUse.amount + moneyItem.amount;
       }
     }
     if (monthlySummaryToUse == null) {
-      console.log('new');
       monthlySummaryToUse = new MonthlySummary();
       monthlySummaryToUse.year = year;
       monthlySummaryToUse.month = month;

@@ -9,16 +9,25 @@ import {PropertyService} from "../services/property.service";
   providers: [PropertyService]
 })
 export class PropertyListComponent implements OnInit {
-
+  errorMessage: string;
   properties : Property[];
   constructor(private propertyService : PropertyService) {
-    this.properties = propertyService.getAll();
-      [
 
-    ];
   }
 
+  getAll() {
+    console.log('in getAll');
+      this.propertyService.getAll()
+        .subscribe(
+          properties => this.properties = properties,
+          error =>  this.errorMessage = <any>error);
+
+  }
+
+
   ngOnInit() {
+   this.getAll();
+
   }
 
 }

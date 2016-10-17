@@ -14,7 +14,7 @@ import {MoneySummaryComponent} from "../money-summary/money-summary.component";
 export class MoneySummaryByMonthComponent implements OnInit {
 
   monthlySummaryList :  MonthlySummaryList;
-  propertyId : number;
+  propertyId : string;
   constructor(private moneyService : MoneyService, private route : ActivatedRoute  ) { }
 
   ngOnInit() {

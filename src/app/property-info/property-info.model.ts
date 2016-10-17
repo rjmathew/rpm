@@ -2,7 +2,7 @@ export class PropertyInfo {
   yearPurchased : number;
   description : string;
 
-  constructor(pYearPurchased : number , pDescription ) {
+  constructor(pYearPurchased? : number , pDescription? : string ) {
     this.yearPurchased = pYearPurchased;
     this.description = pDescription;
   }
