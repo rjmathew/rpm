@@ -15,7 +15,7 @@ export class PropertyFormComponent implements OnInit {
 
   model : Property;
   addedProperty : Property;
-  errorMessage : string;
+  message : string;
 
 
   constructor(private propertyService: PropertyService ) {
@@ -28,16 +28,18 @@ export class PropertyFormComponent implements OnInit {
 
   }
 
-  propertyAdded() {
+  propertyAdded(newProperty : Property) {
+    this.message = "Property Added";
+    console.log('prop added');
+    this.addedProperty = newProperty;
   }
 
   newProperty() {
     var currentPropertyFormComponent = this;
     this.propertyService.addProperty(this.model)
       .subscribe(
-        newProperty => this.addedProperty = newProperty,
-        error =>  this.errorMessage = <any>error,
-      currentPropertyFormComponent.propertyAdded);
+        newProperty => currentPropertyFormComponent.propertyAdded(newProperty),
+        error =>  this.message = <any>error);
   }
 
 }

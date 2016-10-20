@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {MoneyService} from "../services/money-service";
 import {MoneyItem} from "../money-item/money.item.model";
+import {Property} from "../property/property.model";
 
 @Component({
   selector: 'app-money-form',
@@ -13,7 +14,7 @@ export class MoneyFormComponent implements OnInit {
 
   model : MoneyItem;
   addedMoneyItem : MoneyItem;
-  errorMessage : string;
+  message : string;
   constructor(private route : ActivatedRoute, private  moneyService : MoneyService) { }
 
   ngOnInit() {
@@ -22,16 +23,18 @@ export class MoneyFormComponent implements OnInit {
   }
 
 
-  moneyItemAdded() {
+  moneyItemAdded(newMoneyItem : MoneyItem) {
+    console.log('in moneyitemAdded');
+    this.addedMoneyItem = newMoneyItem;
+    this.message= "Added";
   }
 
   newMoneyItem() {
     var currentMoneyItemForm = this;
     this.moneyService.addMoneyItem(this.model)
       .subscribe(
-        newProperty => this.addedMoneyItem = newProperty,
-        error =>  this.errorMessage = <any>error,
-        currentMoneyItemForm.moneyItemAdded);
+        newMoneyItem => currentMoneyItemForm.moneyItemAdded(newMoneyItem),
+        error =>  this.message = <any>error);
   }
 
 }
