@@ -19,6 +19,7 @@ import {AppRoutes} from "./app.routes";
 import { PropertySummaryComponent } from './property-summary/property-summary.component';
 import { HomeComponent } from './home/home.component';
 import { PropertyFormComponent } from './property-form/property-form.component';
+import { MoneyFormComponent } from './money-form/money-form.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { PropertyFormComponent } from './property-form/property-form.component';
     MoneySummaryByMonthComponent,
     PropertySummaryComponent,
     HomeComponent,
-    PropertyFormComponent
+    PropertyFormComponent,
+    MoneyFormComponent
   ],
   imports: [
     BrowserModule,

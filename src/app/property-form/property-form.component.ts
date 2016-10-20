@@ -14,21 +14,30 @@ import {PropertyService} from "../services/property.service";
 export class PropertyFormComponent implements OnInit {
 
   model : Property;
+  addedProperty : Property;
+  errorMessage : string;
+
+
   constructor(private propertyService: PropertyService ) {
     this.model = new Property();
     this.model.info = new PropertyInfo();
-    console.log('here');
     this.model.address = new PropertyAddress();
-    console.log(this.model);
   }
 
   ngOnInit() {
 
   }
 
+  propertyAdded() {
+  }
+
   newProperty() {
-    console.log('submitted');
-    this.propertyService.addProperty(this.model);
+    var currentPropertyFormComponent = this;
+    this.propertyService.addProperty(this.model)
+      .subscribe(
+        newProperty => this.addedProperty = newProperty,
+        error =>  this.errorMessage = <any>error,
+      currentPropertyFormComponent.propertyAdded);
   }
 
 }

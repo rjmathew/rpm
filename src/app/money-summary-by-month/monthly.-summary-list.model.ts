@@ -23,6 +23,8 @@ export class MonthlySummaryList {
   }
 
   constructor(moneyItems : MoneyItem[]) {
+    if (moneyItems==null)
+      moneyItems=[];
     for (var item of moneyItems) {
       this.addToList(item);
     }
@@ -47,6 +49,7 @@ export class MonthlySummaryList {
   addToList(moneyItem : MoneyItem) {
     var year : number;
     var month : number;
+    console.log(moneyItem);
     year = moneyItem.transactionDate.getFullYear();
     month = moneyItem.transactionDate.getMonth();
     if (this.monthlySummaries==null) {

@@ -16,7 +16,6 @@ export class PropertyListComponent implements OnInit {
   }
 
   getAll() {
-    console.log('in getAll');
       this.propertyService.getAll()
         .subscribe(
           properties => this.properties = properties,

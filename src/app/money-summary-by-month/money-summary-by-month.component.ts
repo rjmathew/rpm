@@ -15,16 +15,50 @@ export class MoneySummaryByMonthComponent implements OnInit {
 
   monthlySummaryList :  MonthlySummaryList;
   propertyId : string;
-  constructor(private moneyService : MoneyService, private route : ActivatedRoute  ) { }
+  public moneyItems : MoneyItem[];
+  public errorMessage : string;
+
+  constructor(private moneyService : MoneyService, private route : ActivatedRoute  ) {
+    this.monthlySummaryList = new MonthlySummaryList([]);
+  }
+
+  createMonthlySummaryList(items) : void {
+    console.log('createMonthlySummaryList items', items);
+    this.moneyItems = items;
+    if (this.propertyId != null || this.propertyId=='') {
+      console.log('pId is null');
+      this.moneyItems = this.getAllEntriesForProperty(this.propertyId);
+    } else {
+      console.log('using all items');
+    }
+    console.log('', this.moneyItems);
+    this.monthlySummaryList = new MonthlySummaryList(this.moneyItems);
+  }
+
+  handleError(error) {
+    console.log(error);
+    this.errorMessage = <any>error;
+
+  }
+
+  getAllEntriesForProperty(propertyId: string) : MoneyItem[] {
+    var tempList = [];
+    console.log('input propId ' + propertyId);
+    for (var item of this.moneyItems) {
+      console.log('item.propId',item.propertyId);
+      if (item.propertyId==propertyId)
+        tempList.push(item)
+    }
+    return tempList;
+  }
 
   ngOnInit() {
+    var currentMoneySummaryByMonthComponent = this;
     this.propertyId = this.route.snapshot.params['propertyId'];
-    var moneyItems : MoneyItem[];
-    if (this.propertyId == null)
-      moneyItems = this.moneyService.getAll();
-    else
-      moneyItems = this.moneyService.getAllEntriesForProperty(this.propertyId);
-      this.monthlySummaryList = new MonthlySummaryList(moneyItems);
+      this.moneyService.getAll().subscribe(
+        items => currentMoneySummaryByMonthComponent.createMonthlySummaryList(items),
+        error => currentMoneySummaryByMonthComponent.handleError(error));
+
   }
 
 }

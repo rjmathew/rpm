@@ -21,9 +21,7 @@ export class PropertyComponent implements OnInit {
   constructor(private route : ActivatedRoute, private propertyService : PropertyService) { }
 
   ngOnInit() {
-    console.log(this.inputProperty);
     this.inputProperty = new Property();
-console.log('in ngInit for propComp');
     this._id = this.route.snapshot.params['propertyId'];
     this.propertyService.getPropertyById(this._id)
       .subscribe(
