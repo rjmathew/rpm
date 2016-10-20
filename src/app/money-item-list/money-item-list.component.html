@@ -1,3 +1,17 @@
-<p>
-  money-item-list works!
-</p>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <td>Description</td>
+    <td>Amount</td>
+    <td>Transaction Date</td>
+    <td></td>
+  </tr>
+  </thead>
+  <tr *ngFor="let item of moneyItems">
+    <td>{{item.description}}</td>
+    <td>{{item.amount}} </td>
+    <td>{{item.transactionDate.toDateString()}}</td>
+    <td class="glyphicon glyphicon-remove" (click)="deleteMoneyItem(item._id)"></td>
+  </tr>
+</table>
+<li *ngFor="let item of moneyItems"> </li>

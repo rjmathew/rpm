@@ -32,7 +32,7 @@ export class MoneyService {
     var returnList = [];
     for (var temp of items) {
       let item : MoneyItem;
-      item = new MoneyItem(temp.id, temp.propertyId, parseInt(temp.amount.toString(), 10), temp.description, new Date(temp.transactionDate.toString()));
+      item = new MoneyItem(temp._id, temp.propertyId, parseInt(temp.amount.toString(), 10), temp.description, new Date(temp.transactionDate.toString()));
       returnList.push(item);
     }
     return returnList;
@@ -54,7 +54,8 @@ export class MoneyService {
     var returnList = [];
     for (var temp of list) {
       let item : MoneyItem;
-      item = new MoneyItem(temp.id, temp.propertyId, parseInt(temp.amount.toString(), 10), temp.description, new Date(temp.transactionDate.toString()));
+      console.log(item);
+      item = new MoneyItem(temp._id, temp.propertyId, parseInt(temp.amount.toString(), 10), temp.description, new Date(temp.transactionDate.toString()));
       returnList.push(item);
     }
     return returnList;
@@ -66,6 +67,12 @@ export class MoneyService {
   addMoneyItem(model: MoneyItem) {
     return this.http.post(this.moneyItemsUrl,model).
     map(function(res:Response) {return res;})
+      .catch(this.handleError);
+  }
+
+  delete(itemId: string) {
+    return this.http.delete(`${this.moneyItemsUrl}/${itemId}`)
+      .map((res:Response) => {console.log('Deleted');})
       .catch(this.handleError);
   }
 }

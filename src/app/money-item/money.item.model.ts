@@ -1,7 +1,7 @@
 import {PropertyInfo} from "../property-info/property-info.model";
 import {PropertyAddress} from "../property-address/property-address.model";
 export class MoneyItem {
-  id: string;
+  _id: string;
   propertyId : string;
   description : string;
   amount : number;
@@ -9,7 +9,7 @@ export class MoneyItem {
 
 
   constructor(pId? : string, pPropertyId?: string, pAmount? : number, pDescription? : string, pEntryDate? : Date) {
-    this.id = pId;
+    this._id = pId;
     this.amount = pAmount;
     this.description = pDescription;
     this.propertyId = pPropertyId;
