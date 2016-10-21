@@ -1,4 +1,19 @@
-Summary By Month  <ul>
-  <li *ngFor="let summary of monthlySummaryList.sortedMonthlySummaries()"> {{summary.year}}/{{summary.month}} : Amount : {{summary.amount}}, Cumulative {{summary.cumulativeAmount}}</li>
-</ul>
+Summary By Month
 
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <td>Month</td>
+    <td>Amount</td>
+    <td>Cumulative</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let summary of monthlySummaryList.sortedMonthlySummaries()">
+    <td>{{summary.year}}/{{summary.month}}</td>
+    <td>{{summary.amount}}</td>
+    <td>{{summary.cumulativeAmount}}</td>
+  </tr>
+  </tbody>
+
+</table>

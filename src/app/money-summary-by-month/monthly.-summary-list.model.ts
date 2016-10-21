@@ -51,7 +51,7 @@ export class MonthlySummaryList {
     var month : number;
     console.log(moneyItem);
     year = moneyItem.transactionDate.getFullYear();
-    month = moneyItem.transactionDate.getMonth();
+    month = moneyItem.transactionDate.getMonth() + 1;
     if (this.monthlySummaries==null) {
       this.monthlySummaries = [];
     }

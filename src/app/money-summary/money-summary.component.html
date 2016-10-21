@@ -1,7 +1,10 @@
 
   <div class="h4">Total Profit/Loss : {{totalAmount}}</div>
-  <div>
-  <app-money-summary-by-month></app-money-summary-by-month>
 
+  <div id="monthlySummary">
+    <app-money-summary-by-month></app-money-summary-by-month>
+  </div>
+
+  <div id="allTransactions">
     <app-money-item-list></app-money-item-list>
-</div>
+  </div>

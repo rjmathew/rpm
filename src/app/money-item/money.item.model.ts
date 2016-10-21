@@ -8,12 +8,12 @@ export class MoneyItem {
   transactionDate : Date;
 
 
-  constructor(pId? : string, pPropertyId?: string, pAmount? : number, pDescription? : string, pEntryDate? : Date) {
+  constructor(pId? : string, pPropertyId?: string, pAmount? : number, pDescription? : string, pTransactionDate? : Date) {
     this._id = pId;
     this.amount = pAmount;
     this.description = pDescription;
     this.propertyId = pPropertyId;
-    this.transactionDate = pEntryDate;
+    this.transactionDate = pTransactionDate;
   }
 
 }

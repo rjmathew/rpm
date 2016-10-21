@@ -1,7 +1,17 @@
 <div>
-  <ul>
-    <li *ngFor="let property of properties">
-      <app-property-summary [inputProperty]="property"></app-property-summary>
-    </li>
-  </ul>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-inverse">
+    <tr>
+      <td>
+        Property
+      </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let property of properties">
+      <td><app-property-summary [inputProperty]="property"></app-property-summary></td>
+    </tr>
+    </tbody>
+  </table>
+
 </div>

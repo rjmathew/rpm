@@ -28,15 +28,6 @@ export class MoneyService {
       .catch(this.handleError);
   }
 
-  ingestMoneyItems(items: MoneyItem[]) : MoneyItem[]{
-    var returnList = [];
-    for (var temp of items) {
-      let item : MoneyItem;
-      item = new MoneyItem(temp._id, temp.propertyId, parseInt(temp.amount.toString(), 10), temp.description, new Date(temp.transactionDate.toString()));
-      returnList.push(item);
-    }
-    return returnList;
-  }
   private handleError (error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
@@ -50,12 +41,14 @@ export class MoneyService {
     var list = res.json();
     if (list == null)
       list=[];
-    console.log(this);
     var returnList = [];
     for (var temp of list) {
       let item : MoneyItem;
       console.log(item);
-      item = new MoneyItem(temp._id, temp.propertyId, parseInt(temp.amount.toString(), 10), temp.description, new Date(temp.transactionDate.toString()));
+      var d = new Date(temp.transactionDate.toString());
+      item = new MoneyItem(temp._id, temp.propertyId, parseInt(temp.amount.toString(), 10), temp.description, d);
+      console.log(item.transactionDate.getTimezoneOffset());
+      console.log(item.transactionDate);
       returnList.push(item);
     }
     return returnList;
