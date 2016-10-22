@@ -14,7 +14,7 @@
     </div>
     <div class="form-group">
       <label for="amount">Amount</label>
-      <input type="text" class="form-control" id="amount"
+      <input type="number" class="form-control" id="amount"
              [(ngModel)]="model.amount" name="amount">
 
       <div *ngIf="model.amount > 0" [ngStyle]="{'color': 'green'}">
@@ -27,7 +27,7 @@
 
     <div class="form-group">
       <label for="transactionDate">Date</label>
-      <input type="text" class="form-control" id="transactionDate"
+      <input type="date" class="form-control" id="transactionDate"
              [(ngModel)]="model.transactionDate" name="line2">
     </div>
 

@@ -27,6 +27,7 @@ export class MoneyFormComponent implements OnInit {
     console.log('in moneyitemAdded');
     this.addedMoneyItem = newMoneyItem;
     this.message= "Added";
+    this.model = new MoneyItem();
   }
 
   newMoneyItem() {
