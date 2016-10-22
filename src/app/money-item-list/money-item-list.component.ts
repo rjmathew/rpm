@@ -24,6 +24,13 @@ export class MoneyItemListComponent implements OnInit {
     );
   }
 
+  changeItemType(item : MoneyItem) {
+    item.amount = item.amount * -1;
+    this.moneyService.updateMoneyItem(item).subscribe(
+      x => item = x,
+      err => this.handleError(err));
+  }
+
   handleError(error) {
     console.log(error);
     this.errorMessage = <any>error;

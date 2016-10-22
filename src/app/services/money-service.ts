@@ -68,4 +68,10 @@ export class MoneyService {
       .map((res:Response) => {console.log('Deleted');})
       .catch(this.handleError);
   }
+
+  updateMoneyItem(item: MoneyItem) {
+    return this.http.put(`${this.moneyItemsUrl}/${item._id}`,item)
+      .map((res:Response) => {console.log('Deleted');})
+      .catch(this.handleError);
+  }
 }

@@ -1,16 +1,20 @@
 <table class="table table-striped table-bordered">
   <thead>
   <tr>
+    <td>Income</td>
     <td>Description</td>
     <td>Amount</td>
     <td>Transaction Date</td>
+    <td>Prop Id</td>
     <td></td>
   </tr>
   </thead>
   <tr *ngFor="let item of moneyItems">
+    <td><input type="checkbox" name="isIncome" [checked]="item.amount > 0" (click)="changeItemType(item)"></td>
     <td>{{item.description}}</td>
     <td>{{item.amount}} </td>
     <td>{{item.transactionDate.toDateString()}}</td>
+    <td>{{item.propertyId}} </td>
     <td class="glyphicon glyphicon-remove" (click)="deleteMoneyItem(item._id)"></td>
   </tr>
 </table>

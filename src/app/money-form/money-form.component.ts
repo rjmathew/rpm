@@ -28,6 +28,7 @@ export class MoneyFormComponent implements OnInit {
     this.addedMoneyItem = newMoneyItem;
     this.message= "Added";
     this.model = new MoneyItem();
+    this.model.propertyId = this.route.snapshot.params['propertyId'];
   }
 
   newMoneyItem() {
