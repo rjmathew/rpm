@@ -16,6 +16,16 @@ export class MoneyItemListComponent implements OnInit {
 
   constructor(private moneyService : MoneyService, private route : ActivatedRoute ) { }
 
+  sortedMoneyItems(): MoneyItem[] {
+    if (this.moneyItems==null)
+      return null;
+    return this.moneyItems.sort((a: MoneyItem, b: MoneyItem) => {
+      if (b.transactionDate > a.transactionDate)
+        return 1;
+      return -1;
+    });
+  }
+
   deleteMoneyItem(itemId) {
     this.moneyService.delete(itemId).subscribe(
       result => {console.log(result);this.ngOnInit();},
