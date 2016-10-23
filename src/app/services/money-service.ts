@@ -44,11 +44,11 @@ export class MoneyService {
     var returnList = [];
     for (var temp of list) {
       let item : MoneyItem;
-      console.log(item);
       var d = new Date(temp.transactionDate.toString());
+      d.setTime(d.getTime() + (12*60*60*1000));
       item = new MoneyItem(temp._id, temp.propertyId, parseInt(temp.amount.toString(), 10), temp.description, d);
-      console.log(item.transactionDate.getTimezoneOffset());
-      console.log(item.transactionDate);
+      if (item.description.indexOf("rent from kern ha") != -1)
+        console.log(item.transactionDate);
       returnList.push(item);
     }
     return returnList;

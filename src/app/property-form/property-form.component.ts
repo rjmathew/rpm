@@ -30,7 +30,6 @@ export class PropertyFormComponent implements OnInit {
 
   propertyAdded(newProperty : Property) {
     this.message = "Property Added";
-    console.log('prop added');
     this.addedProperty = newProperty;
   }
 

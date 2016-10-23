@@ -17,7 +17,6 @@ export class MoneyItemListComponent implements OnInit {
   constructor(private moneyService : MoneyService, private route : ActivatedRoute ) { }
 
   deleteMoneyItem(itemId) {
-    console.log('Deleting ', itemId);
     this.moneyService.delete(itemId).subscribe(
       result => {console.log(result);this.ngOnInit();},
       err => {console.log(err)}
@@ -38,9 +37,7 @@ export class MoneyItemListComponent implements OnInit {
 
   getAllEntriesForProperty(propertyId: string) : MoneyItem[] {
     var tempList = [];
-    console.log('input propId ' + propertyId);
     for (var item of this.moneyItems) {
-      console.log('item.propId',item.propertyId);
       if (item.propertyId==propertyId)
         tempList.push(item)
     }
@@ -50,10 +47,7 @@ export class MoneyItemListComponent implements OnInit {
   createItemList(items) : void {
     this.moneyItems = items;
     if (this.propertyId != null || this.propertyId=='') {
-      console.log('pId is null');
       this.moneyItems = this.getAllEntriesForProperty(this.propertyId);
-    } else {
-      console.log('using all items');
     }
   }
 

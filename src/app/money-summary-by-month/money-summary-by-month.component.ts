@@ -23,29 +23,21 @@ export class MoneySummaryByMonthComponent implements OnInit {
   }
 
   createMonthlySummaryList(items) : void {
-    console.log('createMonthlySummaryList items', items);
     this.moneyItems = items;
     if (this.propertyId != null || this.propertyId=='') {
-      console.log('pId is null');
       this.moneyItems = this.getAllEntriesForProperty(this.propertyId);
-    } else {
-      console.log('using all items');
     }
-    console.log('', this.moneyItems);
     this.monthlySummaryList = new MonthlySummaryList(this.moneyItems);
   }
 
   handleError(error) {
-    console.log(error);
     this.errorMessage = <any>error;
 
   }
 
   getAllEntriesForProperty(propertyId: string) : MoneyItem[] {
     var tempList = [];
-    console.log('input propId ' + propertyId);
     for (var item of this.moneyItems) {
-      console.log('item.propId',item.propertyId);
       if (item.propertyId==propertyId)
         tempList.push(item)
     }
