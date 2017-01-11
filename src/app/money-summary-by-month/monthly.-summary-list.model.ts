@@ -38,8 +38,8 @@ export class MonthlySummaryList {
       if (monthlySummaryToUpdate.cumulativeAmount == null)
         monthlySummaryToUpdate.cumulativeAmount = 0;
       for (var monthlySummaryToCheck of this.monthlySummaries) {
-        if ((monthlySummaryToUpdate.month >= monthlySummaryToCheck.month && monthlySummaryToUpdate.year == monthlySummaryToCheck.year)
-          || ((monthlySummaryToUpdate.year >= monthlySummaryToCheck.year))) {
+        if ((monthlySummaryToUpdate.month >= monthlySummaryToCheck.month && monthlySummaryToUpdate.year >= monthlySummaryToCheck.year)
+          || (monthlySummaryToUpdate.year > monthlySummaryToCheck.year)) {
           monthlySummaryToUpdate.cumulativeAmount = monthlySummaryToUpdate.cumulativeAmount + monthlySummaryToCheck.amount;
         }
       }
