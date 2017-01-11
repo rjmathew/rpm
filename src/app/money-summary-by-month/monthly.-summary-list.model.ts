@@ -38,8 +38,7 @@ export class MonthlySummaryList {
       if (monthlySummaryToUpdate.cumulativeAmount == null)
         monthlySummaryToUpdate.cumulativeAmount = 0;
       for (var monthlySummaryToCheck of this.monthlySummaries) {
-        if ((monthlySummaryToUpdate.month >= monthlySummaryToCheck.month && monthlySummaryToUpdate.year >= monthlySummaryToCheck.year)
-          || (monthlySummaryToUpdate.year > monthlySummaryToCheck.year)) {
+        if ((monthlySummaryToUpdate.month >= monthlySummaryToCheck.month && monthlySummaryToUpdate.year >= monthlySummaryToCheck.year) || (monthlySummaryToUpdate.year > monthlySummaryToCheck.year)) {
           monthlySummaryToUpdate.cumulativeAmount = monthlySummaryToUpdate.cumulativeAmount + monthlySummaryToCheck.amount;
         }
       }
@@ -50,7 +49,6 @@ export class MonthlySummaryList {
   addToList(moneyItem : MoneyItem) {
     var year : number;
     var month : number;
-    console.log(moneyItem);
     year = moneyItem.transactionDate.getFullYear();
     month = moneyItem.transactionDate.getMonth() + 1;
     if (this.monthlySummaries==null) {
